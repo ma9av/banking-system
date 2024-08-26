@@ -5,14 +5,14 @@ import { getLoggedInUser } from "@/lib/actions/user.actions"
 
 const Home = async () => {
     const loggenInUser = await getLoggedInUser()
-    console.log(loggenInUser)  
+    console.log("user " + loggenInUser)  
     
 
   return (
     <section className="home">
         <div className="home-content">
             <header className="home-header">
-                <HeaderBox type = "greeting" title = "Welcome" user = {loggenInUser?.name || 'Guest'}
+                <HeaderBox type = "greeting" title = "Welcome" user = {loggenInUser?.firstName || 'Guest'}
                 subtext = "Access and Manage your account and transactions efficiently" />
 
                 <TotalBalanceBox accounts = {[]} totalBanks = {1} totalCurrentBalance = {12500.30}/>
