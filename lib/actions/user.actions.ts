@@ -220,4 +220,49 @@ export const exchangePublicToken = async ({ publicToken, user}:exchangePublicTok
     }
 
 }
-  
+  export const getBanks = async ({ userId}: getBanksProps)=>{
+    try {
+        const { database } = await createAdminClient()
+
+        const banks = await database.listDocuments(
+            process.env.APPWRITE_DATABASE_ID!,
+            process.env.APPWRITE_BANK_COLLECTION_ID!,
+            [Query.equal('userId', [userId])]
+        )
+
+        return parseStringify(banks.documents)
+    } catch (error) {
+        
+    }
+  }
+  export const getBank = async ({ documentId}: getBankProps)=>{
+    try {
+        const { database } = await createAdminClient()
+
+        const banks = await database.listDocuments(
+            process.env.APPWRITE_DATABASE_ID!,
+            process.env.APPWRITE_BANK_COLLECTION_ID!,
+            [Query.equal('$id', [documentId])]
+        )
+
+        return parseStringify(banks.documents[0])
+    } catch (error) {
+        
+    }
+  }
+  export const getBankByAccountId = async ({ accountId}: getBankByAccountIdProps)=>{
+    try {
+        const { database } = await createAdminClient()
+
+        const banks = await database.listDocuments(
+            process.env.APPWRITE_DATABASE_ID!,
+            process.env.APPWRITE_BANK_COLLECTION_ID!,
+            [Query.equal('accountId', [accountId])]
+        )
+        if (banks.total !== 1) return null
+
+        return parseStringify(banks.documents[0])
+    } catch (error) {
+        
+    }
+  }
