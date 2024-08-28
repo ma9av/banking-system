@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import type { Metadata } from "next";
 import { Inter , IBM_Plex_Serif} from "next/font/google";
 import "./globals.css";
@@ -12,8 +14,8 @@ const ibmPlexSerif = IBM_Plex_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Athens",
-  description: "Athens is a modern banking platform for your everyday needs.",
+  title: "Horizon",
+  description: "Horizon is a modern banking platform for your everyday needs.",
   icons:{
     icon: './icons/logo.svg'
   }
