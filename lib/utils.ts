@@ -199,13 +199,13 @@ export const formSchema = (type: string)=> z.object({
   password: z.string().min(8),
 
    firstName: type === 'sign-in' ? z.string().optional() : z.string().min(2).max(30),
-   lastName:type === 'sign-in' ? z.string().optional() : z.string(),
-  address :type === 'sign-in' ? z.string().optional() : z.string(),
-  city :type === 'sign-in' ? z.string().optional() : z.string(),
-  state :type === 'sign-in' ? z.string().optional() : z.string(),
-  postalCode :type === 'sign-in' ? z.string().optional() : z.string(),
+   lastName:type === 'sign-in' ? z.string().optional() : z.string().min(2).max(30),
+  address :type === 'sign-in' ? z.string().optional() : z.string().min(2).max(50),
+  city :type === 'sign-in' ? z.string().optional() : z.string().min(2).max(30),
+  state :type === 'sign-in' ? z.string().optional() : z.string().min(2).max(2),
+  postalCode :type === 'sign-in' ? z.string().optional() : z.string().min(5).max(5),
   dateOfBirth :type === 'sign-in' ? z.string().optional() : z.string(),
-  aadharNo :type === 'sign-in' ? z.string().optional() : z.string(),
+  aadharNo :type === 'sign-in' ? z.string().optional() : z.string().min(4).max(4),
 
   
 
